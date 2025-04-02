@@ -59,18 +59,30 @@ const ParentAttendance = () => {
         if (response.data) {
           // Store the attendance data from the API
           setAttendanceData(response.data.objattendancelist || []);
-          console.log("Attendance Data:", response.data.objattendancelist);
+          console.log("Attendance Data1:", response.data.objattendancelist);
 
-          // Set the summary from the API response
-          if (response.data.totalAttendancRecord) {
+          if (response?.data?.totalAttendancList?.length > 0) {
+            const attendanceData = response.data.totalAttendancList[0];
             setSummary({
-              totalDays: response.data.totalAttendancRecord.totalDays || 0,
-              present: response.data.totalAttendancRecord.presentCount || 0,
-              absent: response.data.totalAttendancRecord.absentCount || 0,
-              holidays: response.data.totalAttendancRecord.holidayCount || 0,
-              attendancePercent: response.data.totalAttendancRecord.attendancePercentage || 0
+              totalDays: attendanceData.totalDays ?? 0,
+              present: attendanceData.presentCount ?? 0,
+              absent: attendanceData.absentCount ?? 0,
+              holidays: attendanceData.holidayCount ?? 0,
+              attendancePercent: attendanceData.attendancePercentage ?? 0
             });
-            console.log("Attendance Summary:", response.data.totalAttendancRecord);
+          } else {
+            // Handle the case where totalAttendancList is missing or empty
+            setSummary({
+              totalDays: 0,
+              present: 0,
+              absent: 0,
+              holidays: 0,
+              attendancePercent: 0
+            });
+          
+          
+                    
+            console.log("Attendance Summary:", summary);
           }
         } else {
           throw new Error("No data received from API");
