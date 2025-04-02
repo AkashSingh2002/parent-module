@@ -1,0 +1,393 @@
+
+/* .card-body{
+  height: 25vh;
+  background-color: rgb(216, 209, 237);
+} */
+body{
+  background-color: #f2edf3;
+}
+.col-md-3 :hover {
+  
+  transform: scale(1.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-from-top {
+  animation: slideFromTop 1s ease-in-out forwards;
+}
+
+.small-box {
+  width: 5vw;
+  height: 10vh;
+  margin: 5px;
+  display: inline-block;
+  background-color: rgb(71, 71, 222);
+}
+.login-body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  /* background: #000; */
+}
+
+.login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 480px;
+  padding: 90px 45px 60px 45px;
+  transform: translate(-50%, -50%);
+  background: rgb(60 90 229);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  filter: drop-shadow(5px 5px 5px orange);
+  margin-left: 400px;
+}
+
+/* .login-form @media (max-width: 600px) {
+  width: 282px;
+  padding: 90px 15px 15px 15px;
+} */
+
+.login-form .logo-login img {
+  width: 99px;
+  height: 95px;
+  position: absolute;
+  top: -57px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 15px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+}
+
+.login-form h2 {
+  color: #fff;
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.login-form .form-input {
+  position: relative;
+  margin: 20px 0;
+}
+
+.login-form .form-input label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.login-form .form-input input {
+  outline: none;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: transparent;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.login-form .form-input input::placeholder {
+  color: #fff;
+}
+
+.login-form .form-input input[type="submit"] {
+  background: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.login-form .form-input input[type="submit"]:hover {
+  background: rgb(242, 190, 48);
+}
+.card-img-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+.card-img-holder {
+  position: relative;
+}
+.custom-gradient-danger {
+  background: linear-gradient(90deg,#ffbf96,#fe7096);
+}
+.custom-gradient-success{
+  background: linear-gradient(90deg,#90caf9,#047edf 99%);
+}
+.custom-gradient-info{
+  background: linear-gradient(90deg,#84d9d2,#07cdae);
+
+}
+.custom-gradient-high{
+  background: linear-gradient(90deg,#8491d9,#1e07cd);
+
+}
+@media (max-width: 767px)
+{ 
+  .col-md-4{
+  margin-bottom: 10px;
+  }
+
+}
+.page-title .page-title-icon {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 3px 8.3px 0.7px rgba(163,93,255,.35);
+}
+.settings-close, .bg-gradient-primary {
+ 
+  background: linear-gradient(90deg,#da8cff,#9a55ff);
+}
+.form-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 50px;
+}
+
+
+/* Loading-Bar */
+
+.loading-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #f0f0f0;
+}
+
+.loading-bar {
+  height: 100%;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+.enriqueta-medium {
+  font-family: "Enriqueta", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+.react-datepicker {
+  font-family: 'Arial', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.react-datepicker__header {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day {
+  color: #007bff;
+}
+
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.react-datepicker__month {
+  margin: 0.4em 1em;
+}
+
+.react-datepicker__month-container {
+  padding: 1em;
+}
+
+.card {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+     
+      .home{
+        position: relative;
+        height: 100vh;
+        width: 50%;
+
+
+        /* background-image: url("C:\Users\shwet\Desktop\Cloned WSMS\School_Management\src\21429.jpg"); */
+        /* background-image: url("D:\WSMS\School_Management\src\21429.jpg"); */
+
+        /* background-image: url("D:\management\School_Management\src\21429.jpg"); */
+        background-image: url("C:\Users\akash\Desktop\Waral Technology\wsms\School_Management\src\21429.jpg");
+
+
+        /* background-image: url("C:\Users\ASUS\OneDrive\Documents\React and ASP\School_Management\src\21429.jpg"); */
+
+
+        background-size: cover;
+        background-position: center;
+      }  
+      .login-form{
+        margin-left: 1px;
+        width: 340px;
+      }
+      
+    }
+    
+    .home{
+      position: relative;
+      height: 100vh;
+    
+      width: 100%;
+      /* background-image: url("C:\Users\shwet\Desktop\Cloned WSMS\School_Management\src\21429.jpg"); */
+
+      /* background-image: url("D:\management\School_Management\src\21429.jpg"); */
+      background-image: url("C:\Users\akash\Desktop\Waral Technology\wsms\School_Management\src\21429.jpg");
+
+
+      /* background-image: url("D:\WSMS\School_Management\src\21429.jpg"); */
+
+      /* background-image: url("C:\Users\ASUS\OneDrive\Documents\React and ASP\School_Management\src\21429.jpg"); */
+
+
+
+      /* background-image: url("C:\Users\shwet\Desktop\Cloned WSMS\School_Management\src\21429.jpg"); */
+      background-size: cover;
+      background-position: center;
+    
+    }
+
+    .login-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .welcome-text {
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: blue; 
+    }
+    
+    .welcome-text h1 {
+      
+      line-height: 1.5; 
+    }
+    
+    .login-body {
+      position: relative; 
+    }
+
+  
+  .highlighted-row input[type="checkbox"] {
+      cursor: not-allowed;
+  }
+
+  .highlighted-row {
+    background-color: black; /* Light blue background color */
+}
+
+
+/* Add CSS rules to enhance modal appearance */
+.modal-content {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+
+}
+
+.modal-header {
+  /* background-color: #007bff;  */
+  color: #fff; /* Header text color */
+  border-bottom: none; /* Remove bottom border */
+}
+
+.modal-footer {
+  border-top: none; /* Remove top border */
+}
+
+.modal-footer button {
+  color: #fff; /* Button text color */
+  background-color: #28a745; /* Button background color */
+  border: none; /* Remove button border */
+}
+
+.modal-footer button:hover {
+  background-color: #218838; /* Button background color on hover */
+}
+
+
+
+.custom-modal-header {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.custom-modal-body {
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.custom-navbar {
+  background-color: #1898c2eb;
+  padding: 10px;
+}
+
+.custom-input-group {
+  width: 45%;
+  margin-right: 10px;
+}
+
+.custom-table {
+  font-size: 10px;
+}
+
+.custom-select-button {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
