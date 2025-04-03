@@ -19,6 +19,8 @@ const ParentAttendance = () => {
   // Use "selectedYearId" to store the manually selected yearId
   // Default is 4 (which corresponds to 2024-2025)
   const [selectedYearId, setSelectedYearId] = useState(4);
+  // Add a new state for selected month
+  const [selectedMonth, setSelectedMonth] = useState("Mar");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -97,6 +99,47 @@ const ParentAttendance = () => {
 
     fetchAttendanceData();
   }, [selectedYearId]);
+  
+  // Add a new useEffect to update summary when month changes
+  useEffect(() => {
+    // Find the data for the selected month
+    const monthData = attendanceData.find(m => m.month === selectedMonth);
+    
+    if (monthData) {
+      // Calculate summary stats for the selected month
+      let presentCount = 0;
+      let absentCount = 0;
+      let holidayCount = 0;
+      let weekendCount = 0;
+      
+      // Loop through all possible days (Roman numerals i to xxxi)
+      const romanKeys = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+        'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx',
+        'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi', 'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi'];
+      
+      // Count different attendance statuses
+      romanKeys.forEach(key => {
+        const status = monthData[key];
+        if (status === 'P') presentCount++;
+        else if (status === 'A') absentCount++;
+        else if (status === 'H') holidayCount++;
+        else if (status === 'W') weekendCount++;
+      });
+      
+      // Calculate total days and attendance percentage
+      const totalDays = presentCount + absentCount;
+      const attendancePercent = totalDays > 0 ? ((presentCount / totalDays) * 100).toFixed(2) : 0;
+      
+      // Update summary state
+      setSummary({
+        totalDays: totalDays,
+        present: presentCount,
+        absent: absentCount,
+        holidays: holidayCount,
+        attendancePercent: attendancePercent
+      });
+    }
+  }, [selectedMonth, attendanceData]);
 
   // Convert Roman numeral to number (i, ii, iii, etc. to 1, 2, 3)
   const romanToNumber = (roman) => {
@@ -295,11 +338,28 @@ const ParentAttendance = () => {
                 </div>
               </div>
 
-              {/* Attendance Summary */}
+              {/* Attendance Summary with Month Selection Dropdown */}
               <div className="mx-auto max-w-[1400px] w-full mt-8 p-4">
-                <h6 className="text-2xl font-bold text-center my-5 ">
-                  Mar Attendance Summary
-                </h6>
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+                  <h6 className="text-2xl font-bold">
+                    Attendance Summary
+                  </h6>
+                  <div className="flex items-center gap-2">
+                    <label htmlFor="month" className="font-medium">
+                      Select Month:
+                    </label>
+                    <select
+                      id="month"
+                      value={selectedMonth}
+                      onChange={(e) => setSelectedMonth(e.target.value)}
+                      className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map(month => (
+                        <option key={month} value={month}>{month}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
                 <div className="overflow-x-auto">
                   <table className="min-w-[600px] w-full border border-gray-300 border-collapse shadow-lg rounded-lg">
